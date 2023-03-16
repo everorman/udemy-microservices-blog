@@ -3,7 +3,7 @@ const {randomBytes } = require('crypto');
 const bodyParser = require('body-parser')
 
 const app = express();
-app.use(bodyParser);
+app.use(bodyParser.json());
 
 const posts = {};
 
@@ -16,7 +16,7 @@ app.post('/post', (req, res)=>{
     posts[id] = {
         id, title
     };
-    res.send()
+    res.status(201).send(posts[id]);
 });
 
 app.listen(4000, ()=>{
