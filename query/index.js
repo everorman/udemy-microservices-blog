@@ -1,5 +1,5 @@
 const express = require('express')
-const bodyParser = require('body-parse');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
@@ -8,7 +8,7 @@ app.use(cors());
 
 const posts = {}
 
-app.post('/posts', (req, res) => {
+app.get('/posts', (req, res) => {
   res.send(posts);
 })
 
