@@ -1,0 +1,57 @@
+apiVersion: skaffold/v4beta4
+kind: Config
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
+build:
+  artifacts:
+    - image: everorman/client
+      context: client
+      sync:
+        manual:
+          - src: src/**/*.js
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: everorman/comments
+      context: comments
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: everorman/posts
+      context: posts
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: everorman/event-bus
+      context: event-bus
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: everorman/moderation
+      context: moderation
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+    - image: everorman/query
+      context: query
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+  local:
+    push: false
