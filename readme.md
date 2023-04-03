@@ -38,4 +38,7 @@ When you create a deployment it creates the pods required, if you deleted for so
 
 ## Ingress controller 
 Provide mechanism to redirect the request to specific pod, is used by the load balancer. 
-for install it we need to follow this instructions: https://kubernetes.github.io/ingress-nginx/deploy/#quick-start 
+for install it we need to follow this instructions: https://kubernetes.github.io/ingress-nginx/deploy/#quick-start.
+If you have many routes you MUST 
+For use regex in our ingress.yml config file, we need to add this in annotation property: 
+> nginx.ingress.kubernetes.io/use-regex: 'true'
