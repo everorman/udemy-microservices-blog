@@ -35,3 +35,7 @@ When you create a deployment it creates the pods required, if you deleted for so
 - Node port, makes a pod accessible to outside the cluster. Usually only used for dev purposes.
 - Load balancer, makes a pod accessible to outside the cluster, is the correct way to expose a pod to the outside cluster. 
 - External name
+
+## Ingress controller 
+Provide mechanism to redirect the request to specific pod, is used by the load balancer. 
+for install it we need to follow this instructions: https://kubernetes.github.io/ingress-nginx/deploy/#quick-start 
